@@ -34,7 +34,8 @@ const Footer = () => {
           <Image src={linkedinIcon} width={40} height={40} alt="facebook" />
           <Image src={twitterIcon} width={40} height={40} alt="facebook" />
         </Stack>
-        <div className="border-b-[1px] border-dashed text-white"></div>
+        {/* <div className="border-b-[1px] border-dashed text-white"></div> */}
+        <Box sx={{border:'1px dashed lightgray'}}></Box>
         <Stack
           direction="row"
           py={2}
