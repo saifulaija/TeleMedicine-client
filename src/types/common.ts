@@ -38,3 +38,11 @@ export interface DrawerItem {
     path: string | number;
     message: string;
   };
+
+
+
+
+
+
+  
+  export const Gender = ["MALE", "FEMALE"];
