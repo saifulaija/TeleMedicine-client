@@ -1,5 +1,6 @@
 export type ISchedule = {
     id?: string;
+    scheduleId?:string;
     startDate: string;
     endDate: string;
   };
