@@ -8,6 +8,7 @@ import MedicalInformationIcon from "@mui/icons-material/MedicalInformation";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PersonIcon from '@mui/icons-material/Person';
+import KeyIcon from "@mui/icons-material/Key";
 
 import TryIcon from "@mui/icons-material/Try";
 import { USER_ROLE } from "@/constants/role";
@@ -15,11 +16,18 @@ import { USER_ROLE } from "@/constants/role";
 export const drawerItems = (role: UserRole): DrawerItem[] => {
   const roleMenus: DrawerItem[] = [];
   const defaultManus=[
+
+    {
+      title: "Change Password",
+      path: `change-password`,
+      icon: KeyIcon,
+    },
     {
       title: "Profile",
       path: `${role}/profile`,
       icon: PersonIcon,
     },
+  
   ]
 
   switch (role) {
