@@ -32,7 +32,7 @@ const defaultValues = {
   password: "",
 };
 const LoginPage = () => {
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const router = useRouter();
 
   const handleLogin = async (values: FieldValues) => {
@@ -77,11 +77,7 @@ const LoginPage = () => {
               Login To PH Health Care
             </Typography>
           </Stack>
-          <Box>
-           {
-            error && (<Alert severity="error">{error}</Alert>)
-           }
-          </Box>
+          <Box>{error && <Alert severity="error">{error}</Alert>}</Box>
           <PHForm
             onSubmit={handleLogin}
             resolver={zodResolver(validationSchema)}
@@ -105,9 +101,19 @@ const LoginPage = () => {
                 />
               </Grid>
             </Grid>
-            <Typography textAlign="end" mb={1} component="p" fontWeight={300}>
-              Forgot Password?
-            </Typography>
+            <Link href={"/forgot-password"}>
+              <Typography
+                textAlign="end"
+                mb={1}
+                component="p"
+                fontWeight={300}
+                sx={{
+                  textDecoration: "underline",
+                }}
+              >
+                Forgot Password?
+              </Typography>
+            </Link>
             <Button type="submit" fullWidth sx={{ my: 2 }}>
               Login
             </Button>
