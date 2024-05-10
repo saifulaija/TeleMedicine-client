@@ -1,5 +1,6 @@
 import { FieldValues } from "react-hook-form";
 import setAccessToken from "./setAccessToken";
+import { jwtDecode } from "jwt-decode";
 
 export const userLogin = async (data: FieldValues) => {
   const res = await fetch(
@@ -13,15 +14,19 @@ export const userLogin = async (data: FieldValues) => {
       credentials: "include",
     }
   );
-  
+
   const userInfo = await res.json();
-  if(userInfo?.data?.accessToken){
-    setAccessToken(userInfo?.data?.accessToken,{
-     redirect:'/dashboard'
-    })
-   }
+  const userData= jwtDecode(userInfo?.data?.accessToken) as any
+  const role = userData?.role ;
+
+
+  const passwordChangedRequired = userInfo?.data?.needPasswordChange;
+  if (userInfo?.data?.accessToken) {
+    setAccessToken(userInfo?.data?.accessToken, {
+      redirect: "/dashboard",
+      role,
+      passwordChangedRequired,
+    });
+  }
   return userInfo;
 };
-
-
-
