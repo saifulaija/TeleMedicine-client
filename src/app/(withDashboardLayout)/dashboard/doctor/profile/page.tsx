@@ -17,6 +17,7 @@ const Profile = () => {
    const [isModalOpen, setIsModalOpen] = useState(false);
 
    const { data, isLoading } = useGetMYProfileQuery(undefined);
+   c
    const [updateMYProfile, { isLoading: updating }] =
       useUpdateMYProfileMutation();
 
