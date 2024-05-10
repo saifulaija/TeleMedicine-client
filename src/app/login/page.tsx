@@ -76,8 +76,9 @@ const LoginPage = () => {
             <Typography variant="h5" fontWeight={600}>
               Login To PH Health Care
             </Typography>
+            <Box>{error && <Alert severity="error">{error}</Alert>}</Box>
           </Stack>
-          <Box>{error && <Alert severity="error">{error}</Alert>}</Box>
+
           <PHForm
             onSubmit={handleLogin}
             resolver={zodResolver(validationSchema)}

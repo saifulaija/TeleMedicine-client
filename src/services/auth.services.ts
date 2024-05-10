@@ -5,7 +5,7 @@ import {
   removeFromLocalStorage,
   setToLocalStorage,
 } from "@/utils/local-storage";
-import { instance as axiosInstance} from "@/helpers/axios/axiosInstance";
+import { instance as axiosInstance } from "@/helpers/axios/axiosInstance";
 
 export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
   return setToLocalStorage(authKey, accessToken);
@@ -19,6 +19,8 @@ export const getUserInfo = () => {
       ...decodedData,
       role: decodedData?.role?.toLowerCase(),
     };
+  } else {
+    return "";
   }
 };
 
